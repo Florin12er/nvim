@@ -11,4 +11,9 @@ require("FlorinVim.icons")
 require("FlorinVim.treesitter")
 
 require("FlorinVim.autosave")
- 
+
+require("FlorinVim.harpoon")
+
+require("FlorinVim.telescope")
+
+require("FlorinVim.terminal")

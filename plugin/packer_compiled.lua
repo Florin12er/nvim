@@ -99,6 +99,14 @@ _G.packer_plugins = {
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["conform.nvim"] = {
+    config = { "\27LJ\2\2O\0\1\4\0\6\0\t6\1\0\0'\2\1\0B\1\2\0029\1\2\0015\2\4\0009\3\3\0=\3\5\2B\1\2\1K\0\1\0\nbufnr\1\0\0\bbuf\vformat\fconform\frequire<\0\0\2\1\2\0\5-\0\0\0009\0\0\0005\1\1\0B\0\2\1K\0\1\0\0À\1\0\2\15timeout_ms\3ô\3\nasync\1\vformatþ\4\1\0\a\0*\00126\0\0\0'\1\1\0B\0\2\0029\1\2\0005\2\26\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\0035\4\18\0=\4\19\0035\4\20\0=\4\21\0035\4\22\0=\4\23\0035\4\24\0=\4\25\3=\3\27\0025\3\28\0=\3\29\0026\3\30\0009\3\31\0039\3 \3'\4!\0005\5\"\0003\6#\0=\6$\5B\3\3\0?\3\0\0B\1\2\0016\1\30\0009\1%\0019\1&\0015\2'\0'\3(\0003\4)\0B\1\4\0012\0\0€K\0\1\0\0\14<leader>z\1\3\0\0\6n\6v\bset\vkeymap\rcallback\0\1\0\1\fpattern\6*\16BufWritePre\24nvim_create_autocmd\bapi\bvim\19format_on_save\1\0\3\nasync\1\17lsp_fallback\2\15timeout_ms\3ô\3\21formatters_by_ft\1\0\0\vgolang\1\2\0\0\fgolines\blua\1\2\0\0\vstylua\fgraphql\1\2\0\0\rprettier\tjson\1\2\0\0\rprettier\thtml\1\2\0\0\rprettier\bcss\1\2\0\0\rprettier\vsvelte\1\2\0\0\rprettier\20typescriptreact\1\2\0\0\rprettier\20javascriptreact\1\2\0\0\rprettier\15typescript\1\2\0\0\rprettier\15javascript\1\0\0\1\2\0\0\rprettier\nsetup\fconform\frequire\3€€À™\4\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/sebastian/.local/share/nvim/site/pack/packer/opt/conform.nvim",
+    url = "https://github.com/stevearc/conform.nvim"
+  },
   ["custom-elements-language-server"] = {
     loaded = true,
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/custom-elements-language-server",
@@ -153,11 +161,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/nordic.nvim",
     url = "https://github.com/AlexvZyl/nordic.nvim"
-  },
-  ["null-ls.nvim"] = {
-    loaded = true,
-    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
-    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -243,6 +246,14 @@ time([[Defining packer_plugins]], false)
 time([[Config for terminal.nvim]], true)
 try_loadstring("\27LJ\2\0026\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rterminal\frequire\0", "config", "terminal.nvim")
 time([[Config for terminal.nvim]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au BufReadPre * ++once lua require("packer.load")({'conform.nvim'}, { event = "BufReadPre *" }, _G.packer_plugins)]]
+vim.cmd [[au BufNewFile * ++once lua require("packer.load")({'conform.nvim'}, { event = "BufNewFile *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
