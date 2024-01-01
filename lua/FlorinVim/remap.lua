@@ -1,12 +1,20 @@
 vim.g.mapleader = " "
+vim.cmd("set termguicolors")
 
-vim.api.nvim_set_keymap("n", "ed", "$", { noremap = true, silent = true })
+-- Set the terminal's color depth to 256 colors
+vim.cmd("set t_Co=256")
+vim.o.compatible = false
+
+vim.cmd("filetype plugin on")
+
+vim.cmd("syntax on")
 
 vim.keymap.set("n", "<leader>w", vim.cmd.w)
-
+vim.keymap.set("n", "<leader>cl", vim.cmd.HighlightColorsOn)
 vim.keymap.set("n", "<leader>q", vim.cmd.q)
 
 vim.keymap.set("n", "<leader>wq", vim.cmd.wq)
+vim.keymap.set("n", "<leader>lv", vim.cmd.LiveServer)
 
 vim.wo.number = true
 

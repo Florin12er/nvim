@@ -1,26 +1,27 @@
 local cmp = require("cmp")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-require("luasnip.loaders.from_vscode").lazy_load()
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.abort(),
+		["<C-a>"] = cmp.mapping.abort(),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	}),
 	snippet = {
 		expand = function(args)
-			require("luasnip").lsp_expand(args.body)
+			vim.fn["vsnip#anonymous"](args.body)
 		end,
 	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
+		{ name = "vsnip" },
 	}, {
 		{ name = "buffer" },
 	}),
 })
+
 require("mason").setup({
 	ui = {
 		icons = {
@@ -28,6 +29,19 @@ require("mason").setup({
 			package_pending = "➜",
 			package_uninstalled = "✗",
 		},
+	},
+})
+local lspkind = require("lspkind")
+cmp.setup({
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = "symbol",
+			maxwidth = 50,
+			ellipsis_char = "...",
+			before = function(entry, vim_item)
+				return vim_item
+			end,
+		}),
 	},
 })
 
@@ -39,19 +53,21 @@ require("mason-lspconfig").setup({
 		"quick_lint_js",
 		"tsserver",
 		"cssls",
-		"golangci_lint_ls",
 		"html",
 		"emmet_ls",
 		"emmet_language_server",
 		"eslint",
+		"jdtls",
 	},
 })
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 })
-
+lspconfig.jdtls.setup({
+	capabilities = capabilities,
+	cmd = { "jdtls" },
+})
 lspconfig.quick_lint_js.setup({
 	capabilities = capabilities,
 })
@@ -65,11 +81,16 @@ lspconfig.eslint.setup({
 lspconfig.cssls.setup({
 	capabilities = capabilities,
 })
-
-lspconfig.golangci_lint_ls.setup({
+lspconfig.eslint.setup({
 	capabilities = capabilities,
 })
 
+lspconfig.kotlin_language_server.setup({
+	capabilities = capabilities,
+})
+lspconfig.gopls.setup({
+	capabilities = capabilities,
+})
 lspconfig.html.setup({
 	capabilities = capabilities,
 })
@@ -80,10 +101,23 @@ lspconfig.emmet_ls.setup({
 lspconfig.emmet_language_server.setup({
 	capabilities = capabilities,
 })
+lspconfig.rust_analyzer.setup({
+	capabilities = capabilities,
+})
+lspconfig.volar.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.tailwindcss.setup({
+	capabilities = capabilities,
+})
+
+lspconfig.htmx.setup({
+	capabilities = capabilities,
+})
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
-		-- Enable completion triggered by <c-x><c-o>
 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
 		local opts = { buffer = ev.buf }
@@ -106,3 +140,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 	end,
 })
+vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml"
+vim.g.closetag_xhtml_filenames = "*.xhtml,*.jsx"
+vim.g.closetag_filetypes = "html,xhtml,phtml"
+vim.g.closetag_xhtml_filetypes = "xhtml,jsx"
+vim.g.closetag_emptyTags_caseSensitive = 1
+vim.g.closetag_regions = {
+	["typescript.tsx"] = "jsxRegion,tsxRegion",
+	["javascript.jsx"] = "jsxRegion",
+	["typescriptreact"] = "jsxRegion,tsxRegion",
+	["javascriptreact"] = "jsxRegion",
+}
+vim.g.closetag_shortcut = ">"
+vim.g.closetag_close_shortcut = "<leader>>"

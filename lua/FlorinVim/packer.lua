@@ -1,96 +1,122 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
 
--- Only required if you have packer configured as `opt`
-
-return require("packer").startup(function(use)
-	require("packer").startup(function()
-		use({
-			"stevearc/conform.nvim",
-			event = { "BufReadPre", "BufNewFile" },
-			config = function()
-				local conform = require("conform")
-				conform.setup({
-					formatters_by_ft = {
-						javascript = { "prettier" },
-						typescript = { "prettier" },
-						javascriptreact = { "prettier" },
-						typescriptreact = { "prettier" },
-						svelte = { "prettier" },
-						css = { "prettier" },
-						html = { "prettier" },
-						json = { "prettier" },
-						graphql = { "prettier" },
-						lua = { "stylua" },
-						golang = { "golines" },
-					},
-					format_on_save = {
-						lsp_fallback = true,
-						async = false,
-						timeout_ms = 500,
-					},
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						pattern = "*",
-						callback = function(args)
-							require("conform").format({ bufnr = args.buf })
-						end,
-					}),
+require("lazy").setup({
+	{
+		"stevearc/conform.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			local conform = require("conform")
+			conform.setup({
+				formatters_by_ft = {
+					javascript = { "prettier" },
+					typescript = { "prettier" },
+					javascriptreact = { "prettier" },
+					typescriptreact = { "prettier" },
+					svelte = { "prettier" },
+					css = { "prettier" },
+					html = { "prettier" },
+					json = { "prettier" },
+					graphql = { "prettier" },
+					lua = { "stylua" },
+					golang = { "golines" },
+					phython = { "pyink" },
+				},
+				format_on_save = {
+					lsp_fallback = true,
+					async = false,
+					timeout_ms = 500,
+				},
+				vim.api.nvim_create_autocmd("BufWritePre", {
+					pattern = "*",
+					callback = function(args)
+						require("conform").format({ bufnr = args.buf })
+					end,
+				}),
+			})
+			vim.keymap.set({ "n", "v" }, "<leader>z", function()
+				conform.format({
+					async = false,
+					timeout_ms = 500,
 				})
-				vim.keymap.set({ "n", "v" }, "<leader>z", function()
-					conform.format({
-						async = false,
-						timeout_ms = 500,
-					})
-				end)
-			end,
-		})
-	end)
+			end)
+		end,
+	},
 
-	use("Pocco81/auto-save.nvim")
-	use("wbthomason/packer.nvim")
-	use("typescript-language-server/typescript-language-server")
-	use({
+	"wbthomason/packer.nvim",
+	"onsails/lspkind.nvim",
+	{
+		"aurum77/live-server.nvim",
+		run = function()
+			require("live_server.util").install()
+		end,
+		cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
+	},
+	{ "rafamadriz/friendly-snippets" },
+	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.4",
-
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
-	use({
+		tag = "0.1.5",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	{
 		"nvim-lualine/lualine.nvim",
-		requires = { "nvim-tree/nvim-web-devicons", opt = true },
-	})
-	use("ThePrimeagen/vim-be-good")
-	use("xna00/unocss-language-server")
-	use("AlexvZyl/nordic.nvim")
-	use("eslint/eslint")
-	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-	use("prettier/prettier")
-	use("ThePrimeagen/harpoon")
-
-	use("mbbill/undotree")
-	use("dense-analysis/ale")
-	use("tpope/vim-fugitive")
-	use({
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+	{
+		"jsongerber/nvim-px-to-rem",
+		config = true,
+	},
+	{
+		"Exafunction/codeium.vim",
+		config = function()
+			-- Change '<C-g>' here to any keycode you like.
+			vim.keymap.set("i", "<C-g>", function()
+				return vim.fn["codeium#Accept"]()
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<c-;>", function()
+				return vim.fn["codeium#CycleCompletions"](1)
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<c-,>", function()
+				return vim.fn["codeium#CycleCompletions"](-1)
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<c-x>", function()
+				return vim.fn["codeium#Clear"]()
+			end, { expr = true, silent = true })
+		end,
+	},
+	"ThePrimeagen/vim-be-good",
+	"brenoprata10/nvim-highlight-colors",
+	"alvan/vim-closetag",
+	"nvim-treesitter/nvim-treesitter",
+	"ThePrimeagen/harpoon",
+	"mbbill/undotree",
+	"tpope/vim-fugitive",
+	"norcalli/nvim-colorizer.lua",
+	{
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
-	})
-	use({ "hrsh7th/nvim-cmp", "hrsh7th/cmp-nvim-lsp" })
-	use("Matsuuu/custom-elements-language-server")
-	use({
-		"creativenull/efmls-configs-nvim",
-		tag = "v1.*", -- tag is optional, but recommended
-		requires = { "neovim/nvim-lspconfig" },
-	})
-	use("MunifTanjim/eslint.nvim")
-	use("L3MON4D3/LuaSnip")
-	use("nvim-tree/nvim-tree.lua")
-	use("saadparwaiz1/cmp_luasnip")
-	use("rafamadriz/friendly-snippets")
-	use("ellisonleao/gruvbox.nvim")
-	use({
+	},
+	{ "hrsh7th/nvim-cmp", "hrsh7th/cmp-nvim-lsp" },
+	"nvim-tree/nvim-tree.lua",
+	"nvim-tree/nvim-web-devicons",
+	"ellisonleao/gruvbox.nvim",
+	"hrsh7th/cmp-vsnip",
+	"hrsh7th/vim-vsnip",
+	{
 		"rebelot/terminal.nvim",
 		config = function()
 			require("terminal").setup()
 		end,
-	})
-end)
+	},
+})
