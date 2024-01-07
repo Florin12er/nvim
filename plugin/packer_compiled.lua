@@ -79,16 +79,6 @@ _G.packer_plugins = {
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ale = {
-    loaded = true,
-    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/ale",
-    url = "https://github.com/dense-analysis/ale"
-  },
-  ["auto-save.nvim"] = {
-    loaded = true,
-    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/auto-save.nvim",
-    url = "https://github.com/Pocco81/auto-save.nvim"
-  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -100,7 +90,7 @@ _G.packer_plugins = {
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["conform.nvim"] = {
-    config = { "\27LJ\2\2O\0\1\4\0\6\0\t6\1\0\0'\2\1\0B\1\2\0029\1\2\0015\2\4\0009\3\3\0=\3\5\2B\1\2\1K\0\1\0\nbufnr\1\0\0\bbuf\vformat\fconform\frequire<\0\0\2\1\2\0\5-\0\0\0009\0\0\0005\1\1\0B\0\2\1K\0\1\0\0À\1\0\2\15timeout_ms\3ô\3\nasync\1\vformatþ\4\1\0\a\0*\00126\0\0\0'\1\1\0B\0\2\0029\1\2\0005\2\26\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\0035\4\18\0=\4\19\0035\4\20\0=\4\21\0035\4\22\0=\4\23\0035\4\24\0=\4\25\3=\3\27\0025\3\28\0=\3\29\0026\3\30\0009\3\31\0039\3 \3'\4!\0005\5\"\0003\6#\0=\6$\5B\3\3\0?\3\0\0B\1\2\0016\1\30\0009\1%\0019\1&\0015\2'\0'\3(\0003\4)\0B\1\4\0012\0\0€K\0\1\0\0\14<leader>z\1\3\0\0\6n\6v\bset\vkeymap\rcallback\0\1\0\1\fpattern\6*\16BufWritePre\24nvim_create_autocmd\bapi\bvim\19format_on_save\1\0\3\nasync\1\17lsp_fallback\2\15timeout_ms\3ô\3\21formatters_by_ft\1\0\0\vgolang\1\2\0\0\fgolines\blua\1\2\0\0\vstylua\fgraphql\1\2\0\0\rprettier\tjson\1\2\0\0\rprettier\thtml\1\2\0\0\rprettier\bcss\1\2\0\0\rprettier\vsvelte\1\2\0\0\rprettier\20typescriptreact\1\2\0\0\rprettier\20javascriptreact\1\2\0\0\rprettier\15typescript\1\2\0\0\rprettier\15javascript\1\0\0\1\2\0\0\rprettier\nsetup\fconform\frequire\3€€À™\4\0" },
+    config = { "\27LJ\2\2O\0\1\4\0\6\0\t6\1\0\0'\2\1\0B\1\2\0029\1\2\0015\2\4\0009\3\3\0=\3\5\2B\1\2\1K\0\1\0\nbufnr\1\0\0\bbuf\vformat\fconform\frequire<\0\0\2\1\2\0\5-\0\0\0009\0\0\0005\1\1\0B\0\2\1K\0\1\0\0À\1\0\2\15timeout_ms\3ô\3\nasync\1\vformat˜\5\1\0\a\0,\00146\0\0\0'\1\1\0B\0\2\0029\1\2\0005\2\28\0005\3\4\0005\4\3\0=\4\5\0035\4\6\0=\4\a\0035\4\b\0=\4\t\0035\4\n\0=\4\v\0035\4\f\0=\4\r\0035\4\14\0=\4\15\0035\4\16\0=\4\17\0035\4\18\0=\4\19\0035\4\20\0=\4\21\0035\4\22\0=\4\23\0035\4\24\0=\4\25\0035\4\26\0=\4\27\3=\3\29\0025\3\30\0=\3\31\0026\3 \0009\3!\0039\3\"\3'\4#\0005\5$\0003\6%\0=\6&\5B\3\3\0?\3\0\0B\1\2\0016\1 \0009\1'\0019\1(\0015\2)\0'\3*\0003\4+\0B\1\4\0012\0\0€K\0\1\0\0\14<leader>z\1\3\0\0\6n\6v\bset\vkeymap\rcallback\0\1\0\1\fpattern\6*\16BufWritePre\24nvim_create_autocmd\bapi\bvim\19format_on_save\1\0\3\nasync\1\17lsp_fallback\2\15timeout_ms\3ô\3\21formatters_by_ft\1\0\0\fphython\1\2\0\0\npyink\vgolang\1\2\0\0\fgolines\blua\1\2\0\0\vstylua\fgraphql\1\2\0\0\rprettier\tjson\1\2\0\0\rprettier\thtml\1\2\0\0\rprettier\bcss\1\2\0\0\rprettier\vsvelte\1\2\0\0\rprettier\20typescriptreact\1\2\0\0\rprettier\20javascriptreact\1\2\0\0\rprettier\15typescript\1\2\0\0\rprettier\15javascript\1\0\0\1\2\0\0\rprettier\nsetup\fconform\frequire\3€€À™\4\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -117,16 +107,6 @@ _G.packer_plugins = {
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/efmls-configs-nvim",
     url = "https://github.com/creativenull/efmls-configs-nvim"
   },
-  eslint = {
-    loaded = true,
-    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/eslint",
-    url = "https://github.com/eslint/eslint"
-  },
-  ["eslint.nvim"] = {
-    loaded = true,
-    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/eslint.nvim",
-    url = "https://github.com/MunifTanjim/eslint.nvim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -141,6 +121,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
+  },
+  ["live-server.nvim"] = {
+    commands = { "LiveServer", "LiveServerStart", "LiveServerStop" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/sebastian/.local/share/nvim/site/pack/packer/opt/live-server.nvim",
+    url = "https://github.com/aurum77/live-server.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -157,20 +145,31 @@ _G.packer_plugins = {
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["nordic.nvim"] = {
-    loaded = true,
-    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/nordic.nvim",
-    url = "https://github.com/AlexvZyl/nordic.nvim"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
+  ["nvim-highlight-colors"] = {
+    loaded = true,
+    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/nvim-highlight-colors",
+    url = "https://github.com/brenoprata10/nvim-highlight-colors"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-px-to-rem"] = {
+    config = { "\27LJ\2\2<\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-px-to-rem\frequire\0" },
+    loaded = true,
+    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/nvim-px-to-rem",
+    url = "https://github.com/jsongerber/nvim-px-to-rem"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -198,10 +197,10 @@ _G.packer_plugins = {
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  prettier = {
+  ["tabnine-nvim"] = {
     loaded = true,
-    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/prettier",
-    url = "https://github.com/prettier/prettier"
+    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/tabnine-nvim",
+    url = "https://github.com/codota/tabnine-nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -214,38 +213,73 @@ _G.packer_plugins = {
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/terminal.nvim",
     url = "https://github.com/rebelot/terminal.nvim"
   },
-  ["typescript-language-server"] = {
+  ["typescript-vim"] = {
     loaded = true,
-    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/typescript-language-server",
-    url = "https://github.com/typescript-language-server/typescript-language-server"
+    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/typescript-vim",
+    url = "https://github.com/leafgarland/typescript-vim"
   },
   undotree = {
     loaded = true,
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
-  ["unocss-language-server"] = {
-    loaded = true,
-    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/unocss-language-server",
-    url = "https://github.com/xna00/unocss-language-server"
-  },
   ["vim-be-good"] = {
     loaded = true,
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/vim-be-good",
     url = "https://github.com/ThePrimeagen/vim-be-good"
   },
+  ["vim-closetag"] = {
+    loaded = true,
+    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/vim-closetag",
+    url = "https://github.com/alvan/vim-closetag"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-jsx-typescript"] = {
+    loaded = true,
+    path = "/home/sebastian/.local/share/nvim/site/pack/packer/start/vim-jsx-typescript",
+    url = "https://github.com/peitalin/vim-jsx-typescript"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-px-to-rem
+time([[Config for nvim-px-to-rem]], true)
+try_loadstring("\27LJ\2\2<\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19nvim-px-to-rem\frequire\0", "config", "nvim-px-to-rem")
+time([[Config for nvim-px-to-rem]], false)
 -- Config for: terminal.nvim
 time([[Config for terminal.nvim]], true)
 try_loadstring("\27LJ\2\0026\0\0\2\0\3\0\0066\0\0\0'\1\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rterminal\frequire\0", "config", "terminal.nvim")
 time([[Config for terminal.nvim]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.api.nvim_create_user_command, 'LiveServerStop', function(cmdargs)
+          require('packer.load')({'live-server.nvim'}, { cmd = 'LiveServerStop', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'live-server.nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('LiveServerStop ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'LiveServerStart', function(cmdargs)
+          require('packer.load')({'live-server.nvim'}, { cmd = 'LiveServerStart', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'live-server.nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('LiveServerStart ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'LiveServer', function(cmdargs)
+          require('packer.load')({'live-server.nvim'}, { cmd = 'LiveServer', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'live-server.nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('LiveServer ', 'cmdline')
+      end})
+time([[Defining lazy-load commands]], false)
+
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads

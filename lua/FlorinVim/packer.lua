@@ -54,6 +54,8 @@ require("lazy").setup({
 	},
 
 	"wbthomason/packer.nvim",
+	"HerringtonDarkholme/yats.vim",
+	"maxmellon/vim-jsx-pretty",
 	"onsails/lspkind.nvim",
 	{
 		"aurum77/live-server.nvim",
@@ -79,7 +81,6 @@ require("lazy").setup({
 	{
 		"Exafunction/codeium.vim",
 		config = function()
-			-- Change '<C-g>' here to any keycode you like.
 			vim.keymap.set("i", "<C-g>", function()
 				return vim.fn["codeium#Accept"]()
 			end, { expr = true, silent = true })
@@ -110,7 +111,7 @@ require("lazy").setup({
 	{ "hrsh7th/nvim-cmp", "hrsh7th/cmp-nvim-lsp" },
 	"nvim-tree/nvim-tree.lua",
 	"nvim-tree/nvim-web-devicons",
-	"ellisonleao/gruvbox.nvim",
+	"navarasu/onedark.nvim",
 	"hrsh7th/cmp-vsnip",
 	"hrsh7th/vim-vsnip",
 	{
