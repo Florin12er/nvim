@@ -8,16 +8,13 @@ vim.api.nvim_exec(
 	false
 )
 
-
 require("terminal").setup({
 	layout = { open_cmd = "botright new" },
 	cmd = { vim.o.shell },
 	autoclose = false,
 })
 local term_map = require("terminal.mappings")
-vim.keymap.set({ "n", "x" }, "<leader>ts", term_map.operator_send, { expr = true })
-
-
+vim.keymap.set({ "n", "x" }, "<leader>tc", term_map.operator_send, { expr = true })
 
 function ToggleTerminal()
 	if vim.bo.buftype == "terminal" then

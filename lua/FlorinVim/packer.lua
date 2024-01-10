@@ -30,7 +30,6 @@ require("lazy").setup({
 					graphql = { "prettier" },
 					lua = { "stylua" },
 					golang = { "golines" },
-					phython = { "pyink" },
 				},
 				format_on_save = {
 					lsp_fallback = true,
@@ -54,7 +53,12 @@ require("lazy").setup({
 	},
 
 	"wbthomason/packer.nvim",
-	"HerringtonDarkholme/yats.vim",
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 	"maxmellon/vim-jsx-pretty",
 	"onsails/lspkind.nvim",
 	{
@@ -78,6 +82,7 @@ require("lazy").setup({
 		"jsongerber/nvim-px-to-rem",
 		config = true,
 	},
+	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
 	{
 		"Exafunction/codeium.vim",
 		config = function()
@@ -111,9 +116,9 @@ require("lazy").setup({
 	{ "hrsh7th/nvim-cmp", "hrsh7th/cmp-nvim-lsp" },
 	"nvim-tree/nvim-tree.lua",
 	"nvim-tree/nvim-web-devicons",
-	"navarasu/onedark.nvim",
-	"hrsh7th/cmp-vsnip",
-	"hrsh7th/vim-vsnip",
+	"rebelot/kanagawa.nvim",
+	"dcampos/nvim-snippy",
+	"dcampos/cmp-snippy",
 	{
 		"rebelot/terminal.nvim",
 		config = function()

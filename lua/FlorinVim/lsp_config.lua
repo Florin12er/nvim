@@ -1,6 +1,5 @@
 local cmp = require("cmp")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -11,12 +10,12 @@ cmp.setup({
 	}),
 	snippet = {
 		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body)
+			require("snippy").expand_snippet(args.body)
 		end,
 	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
-		{ name = "vsnip" },
+		{ name = "snippy" },
 	}, {
 		{ name = "buffer" },
 	}),
@@ -115,6 +114,19 @@ lspconfig.tailwindcss.setup({
 lspconfig.htmx.setup({
 	capabilities = capabilities,
 })
+lspconfig.pylsp.setup({
+	capabilities = capabilities,
+	settings = {
+		pylsp = {
+			plugins = {
+				pycodestyle = {
+					ignore = { "W391" },
+					maxLineLength = 100,
+				},
+			},
+		},
+	},
+})
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
@@ -153,3 +165,10 @@ vim.g.closetag_regions = {
 }
 vim.g.closetag_shortcut = ">"
 vim.g.closetag_close_shortcut = "<leader>>"
+vim.o.foldcolumn = "1"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
+vim.keymap.set("n", "zr", require("ufo").openAllFolds)
+vim.keymap.set("n", "zm", require("ufo").closeAllFolds)

@@ -36,30 +36,28 @@ require("nvim-highlight-colors").setup({
 		{ label = "%-%-theme%-accent%-color", color = "#55678e" },
 	},
 })
--- Default options:
-require("onedark").setup({
-	style = "warmer", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-	transparent = false, -- Show/hide background
-	term_colors = true, -- Change terminal color as per the selected theme style
-	ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
-	cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
-	toggle_style_key = "<leader>ts", -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
-	toggle_style_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }, -- List of styles to toggle between
-	code_style = {
-		comments = "italic",
-		keywords = "none",
-		functions = "none",
-		strings = "none",
-		variables = "none",
+vim.cmd([[colorscheme tokyonight]])
+require("tokyonight").setup({
+	style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+	light_style = "day", -- The theme is used when the background is set to light
+	transparent = false, -- Enable this to disable setting the background color
+	terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
+	styles = {
+		comments = { italic = true },
+		keywords = { italic = true },
+		functions = {},
+		variables = {},
+		sidebars = "dark", -- style for sidebars, see below
+		floats = "dark", -- style for floating windows
 	},
-	lualine = {
-		transparent = false, -- lualine center bar transparency
-	},
-	colors = {}, -- Override default colors
-	highlights = {}, -- Override highlight groups
-	diagnostics = {
-		darker = true, -- darker colors for diagnostic
-		undercurl = true, -- use undercurl instead of underline for diagnostics
-		background = true, -- use background color for virtual text
-	},
+	sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+	day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
+	hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
+	dim_inactive = false, -- dims inactive windows
+	lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
+	---@param colors ColorScheme
+	on_colors = function(colors) end,
+	---@param highlights Highlights
+	---@param colors ColorScheme
+	on_highlights = function(highlights, colors) end,
 })

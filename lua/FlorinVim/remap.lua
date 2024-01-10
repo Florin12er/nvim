@@ -1,7 +1,8 @@
 vim.g.mapleader = " "
 vim.cmd("set termguicolors")
+vim.cmd([[autocmd VimEnter * LspStart<CR>]])
+vim.api.nvim_set_keymap("n", "<Leader>ls", ":LspStart<CR>", { noremap = true, silent = true })
 
--- Set the terminal's color depth to 256 colors
 vim.cmd("set t_Co=256")
 vim.o.compatible = false
 
