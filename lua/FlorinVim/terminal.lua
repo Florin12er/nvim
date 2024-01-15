@@ -37,3 +37,4 @@ vim.keymap.set("n", "<leader>tL", term_map.move({ open_cmd = "botright vnew" }))
 vim.keymap.set("n", "<leader>th", term_map.move({ open_cmd = "belowright new" }))
 vim.keymap.set("n", "<leader>tH", term_map.move({ open_cmd = "botright new" }))
 vim.keymap.set("n", "<leader>tf", term_map.move({ open_cmd = "float" }))
+

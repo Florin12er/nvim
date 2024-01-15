@@ -101,6 +101,7 @@ require("lazy").setup({
 		end,
 	},
 	"ThePrimeagen/vim-be-good",
+	"nvim-lua/plenary.nvim",
 	"brenoprata10/nvim-highlight-colors",
 	"nvim-ts-autotag",
 	"nvim-treesitter/nvim-treesitter",
@@ -117,7 +118,6 @@ require("lazy").setup({
 	{ "hrsh7th/nvim-cmp", "hrsh7th/cmp-nvim-lsp" },
 	"nvim-tree/nvim-tree.lua",
 	"nvim-tree/nvim-web-devicons",
-	"rebelot/kanagawa.nvim",
 	"dcampos/nvim-snippy",
 	"dcampos/cmp-snippy",
 	{
