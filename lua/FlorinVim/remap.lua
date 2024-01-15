@@ -22,7 +22,6 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 
 vim.o.winfixheight = true
-vim.cmd([[packadd packer.nvim]])
 
 vim.keymap.set("n", "<leader>gt", vim.cmd.Git)
 
@@ -56,9 +55,8 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
-
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "J", "mzJ`z")
