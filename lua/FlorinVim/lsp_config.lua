@@ -152,23 +152,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 	end,
 })
-vim.g.closetag_filenames = "*.html,*.xhtml,*.phtml"
-vim.g.closetag_xhtml_filenames = "*.xhtml,*.jsx"
-vim.g.closetag_filetypes = "html,xhtml,phtml"
-vim.g.closetag_xhtml_filetypes = "xhtml,jsx"
-vim.g.closetag_emptyTags_caseSensitive = 1
-vim.g.closetag_regions = {
-	["typescript.tsx"] = "jsxRegion,tsxRegion",
-	["javascript.jsx"] = "jsxRegion",
-	["typescriptreact"] = "jsxRegion,tsxRegion",
-	["javascriptreact"] = "jsxRegion",
-}
-vim.g.closetag_shortcut = ">"
-vim.g.closetag_close_shortcut = "<leader>>"
-vim.o.foldcolumn = "1"
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
-
-vim.keymap.set("n", "zr", require("ufo").openAllFolds)
-vim.keymap.set("n", "zm", require("ufo").closeAllFolds)

@@ -2,6 +2,12 @@ require("nvim-treesitter.configs").setup({
 	sync_install = false,
 	ensure_installed = { "tsx", "lua", "json", "css", "html", "javascript", "typescript" },
 	auto_install = true,
+	autotag = {
+		enable = true,
+	},
+	indent = {
+		enable = true,
+	},
 	highlight = {
 		enable = true,
 	},
