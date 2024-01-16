@@ -1,6 +1,20 @@
-# Neovim Configuration
+# My Neovim Configuration
 
 Welcome to my Neovim configuration! This setup is tailored for enhanced productivity and an optimized coding experience. Below, you'll find details about the plugins, configurations, and key remappings I've implemented.
+
+# Table of Contents
+
+- [Neovim Configuration](##neovim-configuration)
+  - [Installation](##installation)
+  - [Plugin Manager](##plugin-manager)
+  - [Language Server Protocol (LSP) and Autocomplete](##language-server-protocol-lsp-and-autocomplete)
+  - [File Navigation](##file-navigation)
+  - [Code Highlighting and Color Scheme](##code-highlighting-and-color-scheme)
+  - [Additional Plugins](##additional-plugins)
+  - [Key Remappings](##key-remappings)
+    - [Explanation of key remappings](##explanation-of-key-remappings)
+  - [Set up Language Servers](##set-up-language-servers)
+  - [Customize Further (Optional)](##customize-further-optional)
 
 ## Plugin Manager
 
@@ -49,7 +63,7 @@ nvim
 ```
 4. **open the file in the file manager(Optional)**:
 ```bash
-natilus .config/nvim/
+nautilus .config/nvim/
 ```
 ** windows users**: 
 ```powershell
