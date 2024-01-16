@@ -69,36 +69,35 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_dd]])
 
 ## Explanation of key remappings
 
-**vim.g.mapleader = " "**: Sets the leader key to a space.
+- **vim.g.mapleader = " "**: Sets the leader key to a space.
 
-**space + w**: Saves the current buffer.
+- **space + w**: Saves the current buffer.
 
-**space + q**: Closes the current buffer.
+- **space + q**: Closes the current buffer.
 
-**space + wq**: Saves and closes the current buffer.
+- **space + wq**: Saves and closes the current buffer.
 
-**space + md**: Toggles the NvimTree file explorer.
+- **space + md**: Toggles the NvimTree file explorer.
 
-**J**: In visual mode, moves the selected lines down by one.
+- **J**: In visual mode, moves the selected lines down by one.
 
-**K**: In visual mode, moves the selected lines up by one.
+- **K**: In visual mode, moves the selected lines up by one.
 
-**J**: In normal mode, joins the current line with the line below and repositions the cursor at the start of the joined line.
+- **J**: In normal mode, joins the current line with the line below and repositions the cursor at the start of the joined line.
 
-**<C-d>**: In normal mode, scrolls down by half a screen and centers the cursor line.
+- **<C-d>**: In normal mode, scrolls down by half a screen and centers the cursor line.
 
-**<C-u>*: In normal mode, scrolls up by half a screen and centers the cursor line.
+- **<C-u>*: In normal mode, scrolls up by half a screen and centers the cursor line.
 
-**space + x**: Executes the current file as an executable.
+- **space + x**: Executes the current file as an executable.
 
-**space + p**: Replaces the current line with the contents of the clipboard.
+- **space + p**: Replaces the current line with the contents of the clipboard.
 
-**space + s**: Replaces all instances of the word under the cursor with the contents of the clipboard.
+- **space + s**: Replaces all instances of the word under the cursor with the contents of the clipboard.
 
-**space + d**: Deletes the current line and does not add it to the yank register.
+- **space + d**: Deletes the current line and does not add it to the yank register.
 
-** for more of my remappings, check the remap.lua file from the lua/FlorinVim folder. **
-** feel free to add more of your remappings. **
+** for more of my remappings, check the remap.lua file from the lua/FlorinVim folder. feel free to add more key remappings **
 
 
 ## Enjoy!
