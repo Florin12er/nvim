@@ -5,7 +5,7 @@ vim.keymap.set("n", "<leader>cl", vim.cmd.HighlightColorsOn)
 vim.keymap.set("n", "<leader>q", vim.cmd.q)
 
 vim.keymap.set("n", "<leader>wq", vim.cmd.wq)
-vim.keymap.set("n", "<leader>lv", vim.cmd.LiveServer)
+vim.keymap.set("n", "<leader>lv", vim.cmd.LiveServerStart)
 
 vim.keymap.set("n", "<leader>gt", vim.cmd.Git)
 
@@ -37,5 +37,6 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
+    vim.cmd("so")
 end)
+
