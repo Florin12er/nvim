@@ -1,15 +1,5 @@
 vim.g.mapleader = " "
-vim.cmd("set termguicolors")
-vim.cmd([[autocmd VimEnter * LspStart<CR>]])
 vim.api.nvim_set_keymap("n", "<Leader>ls", ":LspStart<CR>", { noremap = true, silent = true })
-
-vim.cmd("set t_Co=256")
-vim.o.compatible = false
-
-vim.cmd("filetype plugin on")
-
-vim.cmd("syntax on")
-
 vim.keymap.set("n", "<leader>w", vim.cmd.w)
 vim.keymap.set("n", "<leader>cl", vim.cmd.HighlightColorsOn)
 vim.keymap.set("n", "<leader>q", vim.cmd.q)
@@ -17,43 +7,11 @@ vim.keymap.set("n", "<leader>q", vim.cmd.q)
 vim.keymap.set("n", "<leader>wq", vim.cmd.wq)
 vim.keymap.set("n", "<leader>lv", vim.cmd.LiveServer)
 
-vim.wo.number = true
-
-vim.wo.relativenumber = true
-
-vim.o.winfixheight = true
-
 vim.keymap.set("n", "<leader>gt", vim.cmd.Git)
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 vim.keymap.set("n", "<leader>md", ":NvimTreeFindFileToggle<CR>")
-
-vim.opt.guicursor = ""
-
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-
-vim.opt.smartindent = true
-
-vim.opt.wrap = false
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
-vim.opt.termguicolors = true
-
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
-
-vim.opt.updatetime = 50
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
@@ -72,3 +30,12 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_dd]])
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+vim.keymap.set("n", "<leader><leader>", function()
+	vim.cmd("so")
+end)

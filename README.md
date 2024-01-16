@@ -29,48 +29,64 @@ I've chosen the `tokyonight` color scheme for a visually appealing coding enviro
 - **codeium:** An AI-powered autocompletion plugin, considered essential for an enhanced coding experience.
 - **nvim-ufo:** A plugin for managing folds in Neovim. press zr to unfold and zm to fold.
 
+## Installation
+
+1. **Install Neovim**:
+Make sure you have Neovim installed on your system. You can find installation instructions on the official Neovim website: https://neovim.io/.
+
+2. **you just need to type this command in your terminal**:
+```bash
+git clone git@github.com:Florin12er/my-neovim-setup.git ~/.config/nvim
+```
+3. **Start Neovim**:
+```bash
+nvim
+```
+4. **open the file in the file manager(Optional)**:
+```bash
+natilus .config/nvim/
+```
+
 ## Key Remappings
 
 ```lua
 vim.g.mapleader = " "
-vim.cmd("set termguicolors")
-vim.cmd([[autocmd VimEnter * LspStart]])
-vim.api.nvim_set_keymap("n", "<leader>ls", ":LspStart<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("x", "J", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("x", "K", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
-
+vim.keymap.set("n", "<leader>w", vim.cmd.w)
+vim.keymap.set("n", "<leader>q", vim.cmd.q)
+vim.keymap.set("n", "<leader>wq", vim.cmd.wq)
+vim.keymap.set("n", "<leader>md", ":NvimTreeFindFileToggle<CR>")
 vim.api.nvim_set_keymap("n", "J", "mzJ`z", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>p", ":_dP", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>x", ":!chmod +x %<CR>", { noremap = true, silent = true })
-<leader>: Sets the leader key to a space.
-set termguicolors: Enables true color support.
-autocmd VimEnter * LspStart: Automatically starts the Language Server Protocol (LSP) on Vim startup.
-<leader>ls: Maps <leader>ls to start the LSP, providing a quick way to initialize language servers.
-xnoremap J: In visual mode, moves the selected lines down by one.
-xnoremap K: In visual mode, moves the selected lines up by one.
-`nnoremap J mzJz``: In normal mode, joins the current line with the line below and repositions the cursor at the start of the joined line.
-nnoremap <C-d>: In normal mode, scrolls down by half a screen and centers the cursor line.
-nnoremap <C-u>: In normal mode, scrolls up by half a screen and centers the cursor line.
-nnoremap n: In normal mode, moves to the next search result and centers the cursor line.
-nnoremap N: In normal mode, moves to the previous search result and centers the cursor line.
-nnoremap <leader>p: Maps <leader>p to paste from the default register and...
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_dd]])
+```
 
+## Explanation of key remappings
 
-##How to Set Up This Neovim Configuration
+vim.g.mapleader = " ": Sets the leader key to a space.
+space + w: Saves the current buffer.
+space + q: Closes the current buffer.
+space + wq: Saves and closes the current buffer.
+space + md: Toggles the NvimTree file explorer.
+J: In visual mode, moves the selected lines down by one.
+K: In visual mode, moves the selected lines up by one.
+J: In normal mode, joins the current line with the line below and repositions the cursor at the start of the joined line.
+<C-d>: In normal mode, scrolls down by half a screen and centers the cursor line.
+<C-u>: In normal mode, scrolls up by half a screen and centers the cursor line.
+space + x: Executes the current file as an executable.
+space + p: Replaces the current line with the contents of the clipboard.
+space + s: Replaces all instances of the word under the cursor with the contents of the clipboard.
+space + d: Deletes the current line and does not add it to the yank register.
 
+** for more of my remappings, check the remap.lua file from the lua/FlorinVim folder. **
+** feel free to add more of your remappings. **
 
-1. **Install Neovim**:
-Make sure you have Neovim installed on your system. You can find installation instructions on the official Neovim website.
-
-2. **Clone this Repository**:
-git clone git@github.com:Florin12er/my-neovim-setup.git ~/.config/nvim
-Replace your-username with your GitHub username or the appropriate URL for your repository.
 
 ## Enjoy!:
 Start Neovim, and Lazy.nvim will automatically install the configured plugins.
@@ -80,4 +96,4 @@ Depending on the languages you work with, you may need to install language serve
 
 ## Customize Further (Optional):
 Feel free to explore and customize the configuration according to your preferences.
-If you encounter any issues or have questions, don't hesitate to open an issue on this repository.
+ef you encounter azy issues or have questions, don't hesitate to open an issue on this repository.

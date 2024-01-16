@@ -1,79 +1,25 @@
-local cmp = require("cmp")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-cmp.setup({
-	mapping = cmp.mapping.preset.insert({
-		["<C-b>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-a>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
-	}),
-	snippet = {
-		expand = function(args)
-			require("snippy").expand_snippet(args.body)
-		end,
-	},
-	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "snippy" },
-	}, {
-		{ name = "buffer" },
-	}),
-})
-
-require("mason").setup({
-	ui = {
-		icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗",
-		},
-	},
-})
-local lspkind = require("lspkind")
-cmp.setup({
-	formatting = {
-		format = lspkind.cmp_format({
-			mode = "symbol",
-			maxwidth = 50,
-			ellipsis_char = "...",
-			before = function(entry, vim_item)
-				return vim_item
-			end,
-		}),
-	},
-})
 
 local lspconfig = require("lspconfig")
 require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = {
 		"lua_ls",
-		"quick_lint_js",
 		"tsserver",
 		"cssls",
 		"html",
 		"emmet_ls",
 		"emmet_language_server",
 		"eslint",
-		"jdtls",
 	},
 })
 
 lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 })
-lspconfig.jdtls.setup({
-	capabilities = capabilities,
-	cmd = { "jdtls" },
-})
-lspconfig.quick_lint_js.setup({
-	capabilities = capabilities,
-})
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
 })
-
 lspconfig.eslint.setup({
 	capabilities = capabilities,
 })
@@ -83,7 +29,6 @@ lspconfig.cssls.setup({
 lspconfig.eslint.setup({
 	capabilities = capabilities,
 })
-
 lspconfig.kotlin_language_server.setup({
 	capabilities = capabilities,
 })
@@ -93,7 +38,6 @@ lspconfig.gopls.setup({
 lspconfig.html.setup({
 	capabilities = capabilities,
 })
-
 lspconfig.emmet_ls.setup({
 	capabilities = capabilities,
 })
@@ -106,11 +50,9 @@ lspconfig.rust_analyzer.setup({
 lspconfig.volar.setup({
 	capabilities = capabilities,
 })
-
 lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
 })
-
 lspconfig.htmx.setup({
 	capabilities = capabilities,
 })
