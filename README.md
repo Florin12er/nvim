@@ -4,17 +4,17 @@ Welcome to my Neovim configuration! This setup is tailored for enhanced producti
 
 # Table of Contents
 
-- [Neovim Configuration](##neovim-configuration)
+- [Neovim Configuration](#neovim-configuration)
   - [Installation](#installation)
-  - [Plugin Manager](##plugin-manager)
-  - [Language Server Protocol (LSP) and Autocomplete](##language-server-protocol-lsp-and-autocomplete)
-  - [File Navigation](##file-navigation)
-  - [Code Highlighting and Color Scheme](##code-highlighting-and-color-scheme)
-  - [Additional Plugins](##additional-plugins)
-  - [Key Remappings](##key-remappings)
-    - [Explanation of key remappings](##explanation-of-key-remappings)
-  - [Set up Language Servers](##set-up-language-servers)
-  - [Customize Further (Optional)](##customize-further-optional)
+  - [Plugin Manager](#plugin-manager)
+  - [Language Server Protocol (LSP) and Autocomplete](#language-server-protocol-lsp-and-autocomplete)
+  - [File Navigation](#file-navigation)
+  - [Code Highlighting and Color Scheme](#code-highlighting-and-color-scheme)
+  - [Additional Plugins](#additional-plugins)
+  - [Key Remappings](#key-remappings)
+    - [Explanation of key remappings](#explanation-of-key-remappings)
+  - [Set up Language Servers](#set-up-language-servers)
+  - [Customize Further (Optional)](#customize-further-optional)
 
 ## Plugin Manager
 
@@ -40,7 +40,7 @@ I've chosen the `tokyonight` color scheme for a visually appealing coding enviro
 - **undotree:** Visualizes the undo history and allows easy navigation between different undo branches.
 - **vim-be-good:** A game to improve Neovim skills.
 - **nvim-lsp-ts-autotag:** Uses treesitter to autoclose and autorename HTML tags.
-- **codeium:** An AI-powered autocompletion plugin, considered essential for an enhanced coding experience.
+- **codeium:** An AI-powered autocompletion plugin, considered essential for an enhanced coding experience.check the [README] https://github.com/Exafunction/codeium.vim for more details.
 - **nvim-ufo:** A plugin for managing folds in Neovim. press zr to unfold and zm to fold.
 
 ## Installation
