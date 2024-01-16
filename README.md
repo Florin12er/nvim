@@ -65,7 +65,7 @@ nvim
 ```bash
 nautilus .config/nvim/
 ```
-** windows users**: 
+**windows users**: 
 ```powershell
 explorer "$env:USERPROFILE\AppData\Local\nvim"
 ```
