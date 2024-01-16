@@ -5,7 +5,7 @@ Welcome to my Neovim configuration! This setup is tailored for enhanced producti
 # Table of Contents
 
 - [Neovim Configuration](##neovim-configuration)
-  - [Installation](##installation)
+  - [Installation](#installation)
   - [Plugin Manager](##plugin-manager)
   - [Language Server Protocol (LSP) and Autocomplete](##language-server-protocol-lsp-and-autocomplete)
   - [File Navigation](##file-navigation)
