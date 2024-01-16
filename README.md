@@ -69,31 +69,44 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_dd]])
 
 ## Explanation of key remappings
 
-vim.g.mapleader = " ": Sets the leader key to a space.
-space + w: Saves the current buffer.
-space + q: Closes the current buffer.
-space + wq: Saves and closes the current buffer.
-space + md: Toggles the NvimTree file explorer.
-J: In visual mode, moves the selected lines down by one.
-K: In visual mode, moves the selected lines up by one.
-J: In normal mode, joins the current line with the line below and repositions the cursor at the start of the joined line.
-<C-d>: In normal mode, scrolls down by half a screen and centers the cursor line.
-<C-u>: In normal mode, scrolls up by half a screen and centers the cursor line.
-space + x: Executes the current file as an executable.
-space + p: Replaces the current line with the contents of the clipboard.
-space + s: Replaces all instances of the word under the cursor with the contents of the clipboard.
-space + d: Deletes the current line and does not add it to the yank register.
+**vim.g.mapleader = " "**: Sets the leader key to a space.
+
+**space + w**: Saves the current buffer.
+
+**space + q**: Closes the current buffer.
+
+**space + wq**: Saves and closes the current buffer.
+
+**space + md**: Toggles the NvimTree file explorer.
+
+**J**: In visual mode, moves the selected lines down by one.
+
+**K**: In visual mode, moves the selected lines up by one.
+
+**J**: In normal mode, joins the current line with the line below and repositions the cursor at the start of the joined line.
+
+**<C-d>**: In normal mode, scrolls down by half a screen and centers the cursor line.
+
+**<C-u>*: In normal mode, scrolls up by half a screen and centers the cursor line.
+
+**space + x**: Executes the current file as an executable.
+
+**space + p**: Replaces the current line with the contents of the clipboard.
+
+**space + s**: Replaces all instances of the word under the cursor with the contents of the clipboard.
+
+**space + d**: Deletes the current line and does not add it to the yank register.
 
 ** for more of my remappings, check the remap.lua file from the lua/FlorinVim folder. **
 ** feel free to add more of your remappings. **
 
 
-## Enjoy!:
+## Enjoy!
 Start Neovim, and Lazy.nvim will automatically install the configured plugins.
 
-## Set up Language Servers:
+## Set up Language Servers
 Depending on the languages you work with, you may need to install language servers and configure them. Refer to the documentation of mason, mason-lsp-config, and lspconfig for more information.
 
-## Customize Further (Optional):
+## Customize Further (Optional)
 Feel free to explore and customize the configuration according to your preferences.
 ef you encounter azy issues or have questions, don't hesitate to open an issue on this repository.
