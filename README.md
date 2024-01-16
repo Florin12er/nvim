@@ -34,9 +34,14 @@ I've chosen the `tokyonight` color scheme for a visually appealing coding enviro
 1. **Install Neovim**:
 Make sure you have Neovim installed on your system. You can find installation instructions on the official Neovim website: https://neovim.io/.
 
+
 2. **you just need to type this command in your terminal**:
 ```bash
 git clone git@github.com:Florin12er/my-neovim-setup.git ~/.config/nvim
+```
+**for windows users**: 
+```powershell
+mkdir "$env:USERPROFILE\AppData\Local\nvim" -Force; git clone https://github.com/nvim-lua/kickstart.nvim.git "$env:USERPROFILE\AppData\Local\nvim"
 ```
 3. **Start Neovim**:
 ```bash
@@ -45,6 +50,10 @@ nvim
 4. **open the file in the file manager(Optional)**:
 ```bash
 natilus .config/nvim/
+```
+** windows users**: 
+```powershell
+explorer "$env:USERPROFILE\AppData\Local\nvim"
 ```
 
 ## Key Remappings
@@ -97,7 +106,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_dd]])
 
 - **space + d**: Deletes the current line and does not add it to the yank register.
 
-** for more of my remappings, check the remap.lua file from the lua/FlorinVim folder. feel free to add more key remappings **
+for more of my remappings, check the **remap.lua** file from the **lua/FlorinVim folder**. feel free to add more key remappings 
 
 
 ## Enjoy!

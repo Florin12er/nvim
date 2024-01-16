@@ -11,6 +11,14 @@ require("mason-lspconfig").setup({
 		"emmet_ls",
 		"emmet_language_server",
 		"eslint",
+		"kotlin_language_server",
+		"gopls",
+		"rust_analyzer",
+		"tailwindcss",
+		"htmx",
+		"pylsp",
+		"volar",
+		"emmet_ls",
 	},
 })
 
