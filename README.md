@@ -58,7 +58,7 @@ git clone git@github.com:Florin12er/my-neovim-setup.git ~/.config/nvim
 **for Windows users**:
 
 ```powershell
-mkdir "$env:USERPROFILE\AppData\Local\nvim" -Force; git clone https://github.com/nvim-lua/kickstart.nvim.git "$env:USERPROFILE\AppData\Local\nvim"
+mkdir "$env:USERPROFILE\AppData\Local\nvim" -Force; git clone git@github.com:Florin12er/my-neovim-setup.git "$env:USERPROFILE\AppData\Local\nvim"
 ```
 
 3. **Start Neovim**:
