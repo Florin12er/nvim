@@ -19,10 +19,18 @@ require("mason-lspconfig").setup({
 		"pylsp",
 		"volar",
 		"emmet_ls",
+		"ltex",
+		"ast_grep",
 	},
 })
 
 lspconfig.lua_ls.setup({
+	capabilities = capabilities,
+})
+lspconfig.ast_grep.setup({
+	capabilities = capabilities,
+})
+lspconfig.ltex.setup({
 	capabilities = capabilities,
 })
 lspconfig.tsserver.setup({
@@ -54,6 +62,13 @@ lspconfig.emmet_language_server.setup({
 })
 lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
+	settings = {
+		["rust-analyzer"] = {
+			diagnostics = {
+				enable = true,
+			},
+		},
+	},
 })
 lspconfig.volar.setup({
 	capabilities = capabilities,

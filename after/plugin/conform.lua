@@ -12,6 +12,7 @@ conform.setup({
 		graphql = { "prettier" },
 		lua = { "stylua" },
 		golang = { "golines" },
+		markdown = { "prettier" },
 	},
 	format_on_save = {
 		lsp_fallback = true,
