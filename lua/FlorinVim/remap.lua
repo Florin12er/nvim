@@ -51,7 +51,7 @@ vim.keymap.set("n", "<leader>o", ":SymbolsOutline<CR>", { noremap = true, silent
 local term_map = require("terminal.mappings")
 vim.keymap.set({ "n", "x" }, "<leader>tc", term_map.operator_send, { expr = true })
 vim.api.nvim_set_keymap("n", "<leader>t", [[:lua ToggleTerminal()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>tn", ":botright vertical terminal<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>to", ":botright vertical terminal<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tO", term_map.toggle({ open_cmd = "enew" }))
 vim.keymap.set("n", "<leader>tr", term_map.run)
 vim.keymap.set("n", "<leader>tR", term_map.run(nil, { layout = { open_cmd = "enew" } }))
@@ -99,3 +99,22 @@ end)
 --px to rem
 
 vim.keymap.set({ "n", "v" }, "<leader>px", ":PxToRemLine<CR>", { noremap = true, silent = true })
+
+--move windows
+
+-- Move to the window to the left
+vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
+-- Move to the window below
+vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+-- Move to the window above
+vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+-- Move to the window to the right
+vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("n", "<C-w>", ":split<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-l>", ":vsplit<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-q>", "<C-w>q", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-p>", "<C-w>+", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-m>", "<C-w>-", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-b>", "<C-w>>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-n>", "<C-w><", { noremap = true, silent = true })
