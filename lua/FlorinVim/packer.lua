@@ -18,6 +18,10 @@ require("lazy").setup({
 	},
 
 	"wbthomason/packer.nvim",
+	"simrat39/symbols-outline.nvim",
+	"mfussenegger/nvim-jdtls",
+	"nvim-lua/plenary.nvim",
+	"mfussenegger/nvim-dap",
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,

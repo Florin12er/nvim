@@ -13,6 +13,11 @@ conform.setup({
 		lua = { "stylua" },
 		golang = { "golines" },
 		markdown = { "prettier" },
+		rust = { "rust_analyzer" },
+		python = { "black" },
+		jsx = { "prettier" },
+		tsx = { "prettier" },
+		vue = { "prettier" },
 	},
 	format_on_save = {
 		lsp_fallback = true,
@@ -26,9 +31,3 @@ conform.setup({
 		end,
 	}),
 })
-vim.keymap.set({ "n", "v" }, "<leader>z", function()
-	conform.format({
-		async = false,
-		timeout_ms = 500,
-	})
-end)
