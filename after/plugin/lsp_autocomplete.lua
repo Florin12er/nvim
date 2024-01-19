@@ -43,6 +43,17 @@ lspconfig.golangci_lint_ls.setup({
 lspconfig.ast_grep.setup({
 	capabilities = capabilities,
 })
+lspconfig.jdtls.setup({
+	capabilities = capabilities,
+	cmd = { "jdtls" },
+	settings = {
+		java = {
+			signatureHelp = {
+				enabled = true,
+			},
+		},
+	},
+})
 lspconfig.ltex.setup({
 	capabilities = capabilities,
 })
