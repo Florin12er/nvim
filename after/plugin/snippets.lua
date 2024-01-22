@@ -3,13 +3,13 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lsp_signature_help" },
-		{ name = "snippy" },
+		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "jdtls" },
 	},
 	snippet = {
 		expand = function(args)
-			require("snippy").expand_snippet(args.body)
+			require("luasnip").lsp_expand(args.body)
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({

@@ -23,6 +23,8 @@ vim.opt.updatetime = 50
 vim.wo.number = true
 
 vim.wo.relativenumber = true
+vim.cmd("set number")
+vim.cmd("set relativenumber")
 
 vim.o.winfixheight = true
 
@@ -30,7 +32,8 @@ vim.cmd("set t_Co=256")
 vim.o.compatible = false
 
 vim.cmd("filetype plugin on")
-
-vim.cmd("syntax on")
-vim.cmd("set termguicolors")
+vim.cmd(":set termguicolors")
 vim.cmd([[autocmd VimEnter * LspStart<CR>]])
+vim.opt.updatetime = 50
+vim.opt.colorcolumn = "100"
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"

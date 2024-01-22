@@ -1,4 +1,5 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local on_attach = require("cmp_nvim_lsp").on_attach
 local lspconfig = require("lspconfig")
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -405,6 +406,8 @@ lspconfig.pylsp.setup({
 		},
 	},
 })
+require("luasnip.loaders.from_vscode").lazy_load()
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
@@ -415,7 +418,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+		vim.keymap.set("n", "<C-he>", vim.lsp.buf.signature_help, opts)
 		vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
 		vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
 		vim.keymap.set("n", "<space>wl", function()

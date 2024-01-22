@@ -6,6 +6,7 @@ vim.keymap.set("n", "<leader>q", vim.cmd.q)
 
 vim.keymap.set("n", "<leader>wq", vim.cmd.wq)
 vim.keymap.set("n", "<leader>lv", vim.cmd.LiveServerStart)
+vim.keymap.set("n", "<leader>lq", vim.cmd.LiveServerStop)
 
 vim.keymap.set("n", "<leader>gt", vim.cmd.Git)
 
@@ -48,42 +49,42 @@ end)
 vim.keymap.set("n", "<leader>o", ":SymbolsOutline<CR>", { noremap = true, silent = true })
 
 --terminal
-local term_map = require("terminal.mappings")
-vim.keymap.set({ "n", "x" }, "<leader>tc", term_map.operator_send, { expr = true })
-vim.api.nvim_set_keymap("n", "<leader>t", [[:lua ToggleTerminal()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>to", ":botright vertical terminal<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>tO", term_map.toggle({ open_cmd = "enew" }))
-vim.keymap.set("n", "<leader>tr", term_map.run)
-vim.keymap.set("n", "<leader>tR", term_map.run(nil, { layout = { open_cmd = "enew" } }))
-vim.keymap.set("n", "<leader>tk", term_map.kill)
-vim.keymap.set("n", "<leader>tcn", term_map.cycle_next)
-vim.keymap.set("n", "<leader>tcp", term_map.cycle_prev)
-vim.keymap.set("n", "<leader>tl", term_map.move({ open_cmd = "belowright vnew" }))
-vim.keymap.set("n", "<leader>tL", term_map.move({ open_cmd = "botright vnew" }))
-vim.keymap.set("n", "<leader>th", term_map.move({ open_cmd = "belowright new" }))
-vim.keymap.set("n", "<leader>tH", term_map.move({ open_cmd = "botright new" }))
-vim.keymap.set("n", "<leader>tf", term_map.move({ open_cmd = "float" }))
+-- exit terminal mode
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+
+-- close terminal
+vim.api.nvim_set_keymap("t", "<C-q>", "<C-\\><C-n>:q<CR>", { noremap = true, silent = true })
+
+-- Open a new terminal window at the bottom
+vim.api.nvim_set_keymap("n", "<Leader>t", ":belowright terminal<CR>", { noremap = true, silent = true })
+
+vim.api.nvim_exec(
+	[[
+  autocmd TermOpen * resize 25
+]],
+	false
+)
 
 --harpoon
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
 vim.keymap.set("n", "<leader>m", mark.add_file)
-vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+vim.keymap.set("n", "<leader>e", ui.toggle_quick_menu)
 
-vim.keymap.set("n", "<C-h>", function()
+vim.keymap.set("n", "<C-o>", function()
 	ui.nav_file(1)
 end)
-vim.keymap.set("n", "<C-t>", function()
+vim.keymap.set("n", "<C-n>", function()
 	ui.nav_file(2)
 end)
-vim.keymap.set("n", "<C-n>", function()
+vim.keymap.set("n", "<C-j>", function()
 	ui.nav_file(3)
 end)
-vim.keymap.set("n", "<C-s>", function()
+vim.keymap.set("n", "<C-a>", function()
 	ui.nav_file(4)
 end)
-vim.keymap.set("n", "<C-w>", function()
+vim.keymap.set("n", "<C-s>", function()
 	ui.nav_file(5)
 end)
 
@@ -103,18 +104,18 @@ vim.keymap.set({ "n", "v" }, "<leader>px", ":PxToRemLine<CR>", { noremap = true,
 --move windows
 
 -- Move to the window to the left
-vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
+--vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
 -- Move to the window below
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+--vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 -- Move to the window above
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+--vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 -- Move to the window to the right
-vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+--vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", "<C-w>", ":split<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-l>", ":vsplit<CR>", { noremap = true, silent = true })
+--vim.api.nvim_set_keymap("n", "<C-w>", ":split<CR>", { noremap = true, silent = true })
+--vim.api.nvim_set_keymap("n", "<C-e>", ":vsplit<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-q>", "<C-w>q", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-p>", "<C-w>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-m>", "<C-w>-", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-b>", "<C-w>>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-n>", "<C-w><", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-y>", "<C-w>+", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-z>", "<C-w>-", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-c>", "<C-w>>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-x>", "<C-w><", { noremap = true, silent = true })

@@ -1,28 +1,3 @@
-require("colorizer").setup()
-
-require("colorizer").setup({
-	"css",
-	"javascript",
-	html = {
-		mode = "foreground",
-	},
-})
-
-require("colorizer").setup({
-	"css",
-	"javascript",
-	html = { mode = "background" },
-}, { mode = "foreground" })
-require("colorizer").setup({
-	"*",
-	css = { rgb_fn = true },
-	html = { names = true },
-})
-
-require("colorizer").setup({
-	"*",
-	"!vim",
-})
 require("nvim-highlight-colors").setup({
 	render = "background", -- or 'foreground' or 'first_column'
 	enable_named_colors = true,
