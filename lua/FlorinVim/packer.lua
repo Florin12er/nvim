@@ -70,7 +70,6 @@ require("lazy").setup({
 	"windwp/nvim-ts-autotag",
 	"ThePrimeagen/harpoon",
 	"mbbill/undotree",
-	"tpope/vim-fugitive",
 	{
 		"numToStr/Comment.nvim",
 		opts = {
