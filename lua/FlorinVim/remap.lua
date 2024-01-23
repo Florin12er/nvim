@@ -8,7 +8,7 @@ vim.keymap.set("n", "<leader>wq", vim.cmd.wq)
 vim.keymap.set("n", "<leader>lv", vim.cmd.LiveServerStart)
 vim.keymap.set("n", "<leader>lq", vim.cmd.LiveServerStop)
 
-vim.keymap.set("n", "<leader>gt", vim.cmd.Git)
+vim.keymap.set("n", "<leader>gt", ":LazyGit<CR>")
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 

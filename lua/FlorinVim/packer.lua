@@ -71,6 +71,13 @@ require("lazy").setup({
 	"ThePrimeagen/harpoon",
 	"mbbill/undotree",
 	{
+		"kdheepak/lazygit.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+	},
+
+	{
 		"numToStr/Comment.nvim",
 		opts = {
 			-- add any options here
@@ -85,7 +92,6 @@ require("lazy").setup({
 	{ "hrsh7th/nvim-cmp", "hrsh7th/cmp-nvim-lsp" },
 	"nvim-tree/nvim-tree.lua",
 	{ "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets", "saadparwaiz1/cmp_luasnip" } },
-
 	"nvim-tree/nvim-web-devicons",
 	"wbthomason/packer.nvim",
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
