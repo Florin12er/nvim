@@ -52,7 +52,7 @@ I've chosen the `tokyonight` color scheme for a visually appealing coding enviro
 2. **you just need to type this command in your terminal**:
 
 ```bash
-git clone https://github.com/Florin12er/my-neovim-setup.git ~/.config/nvim
+git clone git@github.com:Florin12er/my-neovim-setup.git ~/.config/nvim
 ```
 
 **for Windows users**:

@@ -34,7 +34,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_dd]])
 vim.keymap.set("n", "<leader>so", function()
-	vim.cmd("so")
+    vim.cmd("so")
 end)
 
 --telescope
@@ -43,7 +43,7 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>gg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fs", function()
-	builtin.grep_string({ search = vim.fn.input("Find > ") })
+    builtin.grep_string({ search = vim.fn.input("Find > ") })
 end)
 
 vim.keymap.set("n", "<leader>o", ":SymbolsOutline<CR>", { noremap = true, silent = true })
@@ -55,16 +55,11 @@ vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = 
 -- close terminal
 vim.api.nvim_set_keymap("t", "<C-q>", "<C-\\><C-n>:q<CR>", { noremap = true, silent = true })
 
--- Open a new terminal window at the bottom
-vim.api.nvim_set_keymap("n", "<Leader>t", ":belowright terminal<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_exec(
-	[[
-  autocmd TermOpen * resize 25
-]],
-	false
-)
-
+require 'toggleterm'.setup {
+    shade_terminals = false
+}
+vim.keymap.set("n", "<leader>t", ":ToggleTerm<CR>", { noremap = true, silent = true })
 --harpoon
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
@@ -72,29 +67,30 @@ local ui = require("harpoon.ui")
 vim.keymap.set("n", "<leader>m", mark.add_file)
 vim.keymap.set("n", "<leader>e", ui.toggle_quick_menu)
 
-vim.keymap.set("n", "<C-o>", function()
-	ui.nav_file(1)
+vim.keymap.set("n", "<M-1>", function()
+    ui.nav_file(1)
 end)
-vim.keymap.set("n", "<C-n>", function()
-	ui.nav_file(2)
+vim.keymap.set("n", "<M-2>", function()
+    ui.nav_file(2)
 end)
-vim.keymap.set("n", "<C-j>", function()
-	ui.nav_file(3)
+vim.keymap.set("n", "<M-3>", function()
+    ui.nav_file(3)
 end)
-vim.keymap.set("n", "<C-a>", function()
-	ui.nav_file(4)
+vim.keymap.set("n", "<M-4>", function()
+    ui.nav_file(4)
 end)
-vim.keymap.set("n", "<C-s>", function()
-	ui.nav_file(5)
+vim.keymap.set("n", "<M-5>", function()
+    ui.nav_file(5)
 end)
+
 
 --conform
 local conform = require("conform")
 vim.keymap.set({ "n", "v" }, "<leader>z", function()
-	conform.format({
-		async = false,
-		timeout_ms = 500,
-	})
+    conform.format({
+        async = false,
+        timeout_ms = 500,
+    })
 end)
 
 --px to rem
