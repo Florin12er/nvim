@@ -27,12 +27,14 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_dd]])
 vim.keymap.set("n", "<leader>so", function()
-    vim.cmd("so")
+	vim.cmd("so")
 end)
 
 --telescope
@@ -41,7 +43,7 @@ vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>gg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fs", function()
-    builtin.grep_string({ search = vim.fn.input("Find > ") })
+	builtin.grep_string({ search = vim.fn.input("Find > ") })
 end)
 
 vim.keymap.set("n", "<leader>o", ":SymbolsOutline<CR>", { noremap = true, silent = true })
@@ -53,10 +55,9 @@ vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = 
 -- close terminal
 vim.api.nvim_set_keymap("t", "<C-q>", "<C-\\><C-n>:q<CR>", { noremap = true, silent = true })
 
-
-require 'toggleterm'.setup {
-    shade_terminals = false
-}
+require("toggleterm").setup({
+	shade_terminals = false,
+})
 vim.keymap.set("n", "<leader>t", ":ToggleTerm<CR>", { noremap = true, silent = true })
 --harpoon
 local mark = require("harpoon.mark")
@@ -66,29 +67,28 @@ vim.keymap.set("n", "<leader>m", mark.add_file)
 vim.keymap.set("n", "<leader>e", ui.toggle_quick_menu)
 
 vim.keymap.set("n", "<M-1>", function()
-    ui.nav_file(1)
+	ui.nav_file(1)
 end)
 vim.keymap.set("n", "<M-2>", function()
-    ui.nav_file(2)
+	ui.nav_file(2)
 end)
 vim.keymap.set("n", "<M-3>", function()
-    ui.nav_file(3)
+	ui.nav_file(3)
 end)
 vim.keymap.set("n", "<M-4>", function()
-    ui.nav_file(4)
+	ui.nav_file(4)
 end)
 vim.keymap.set("n", "<M-5>", function()
-    ui.nav_file(5)
+	ui.nav_file(5)
 end)
-
 
 --conform
 local conform = require("conform")
 vim.keymap.set({ "n", "v" }, "<leader>z", function()
-    conform.format({
-        async = false,
-        timeout_ms = 500,
-    })
+	conform.format({
+		async = false,
+		timeout_ms = 500,
+	})
 end)
 
 --px to rem
@@ -117,42 +117,42 @@ vim.api.nvim_set_keymap("n", "<C-x>", "<C-w><", { noremap = true, silent = true 
 --codeium
 
 vim.keymap.set("i", "<C-g>", function()
-    return vim.fn["codeium#Accept"]()
+	return vim.fn["codeium#Accept"]()
 end, { expr = true })
 vim.keymap.set("i", "<C-x>", function()
-    return vim.fn["codeium#Clear"]()
+	return vim.fn["codeium#Clear"]()
 end, { expr = true })
 vim.keymap.set("i", "<C-b>", function()
-    return vim.fn["codeium#CycleCompletions"](1)
+	return vim.fn["codeium#CycleCompletions"](1)
 end, { expr = true })
 vim.keymap.set("i", "<C-l>", function()
-    return vim.fn["codeium#CycleCompletions"](-1)
+	return vim.fn["codeium#CycleCompletions"](-1)
 end, { expr = true })
 --lsp
 vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-    callback = function(ev)
-        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(ev)
+		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-        local opts = { buffer = ev.buf }
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-        vim.keymap.set("n", "<C-he>", vim.lsp.buf.signature_help, opts)
-        vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-        vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-        vim.keymap.set("n", "<space>wl", function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, opts)
-        vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-        vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "<space>f", function()
-            vim.lsp.buf.format({ async = true })
-        end, opts)
-    end,
+		local opts = { buffer = ev.buf }
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+		vim.keymap.set("n", "<C-he>", vim.lsp.buf.signature_help, opts)
+		vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
+		vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
+		vim.keymap.set("n", "<space>wl", function()
+			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+		end, opts)
+		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+		vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+		vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		vim.keymap.set("n", "<space>f", function()
+			vim.lsp.buf.format({ async = true })
+		end, opts)
+	end,
 })
 
 -- live server
