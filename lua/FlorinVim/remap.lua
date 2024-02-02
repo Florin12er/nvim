@@ -12,8 +12,6 @@ vim.keymap.set("n", "gt", ":LazyGit<CR>")
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
-vim.keymap.set("n", "<leader>md", ":NvimTreeFindFileToggle<CR>")
-
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -156,6 +154,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end, opts)
     end,
 })
+
 -- live server
 vim.keymap.set("n", "<leader>lv", vim.cmd.LiveServerStart)
 vim.keymap.set("n", "<leader>lq", vim.cmd.LiveServerStop)
+
+--git sign
+vim.keymap.set("n", "<leader>gs", ":Gitsigns toggle_signs<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { noremap = true, silent = true })
+vim.cmd("Gitsigns toggle_signs")
+vim.cmd("Gitsigns toggle_current_line_blame")
+
+--neo tree
+vim.keymap.set("n", "<leader>md", ":Neotree toggle<CR>", { noremap = true, silent = true })

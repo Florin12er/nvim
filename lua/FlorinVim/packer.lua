@@ -19,6 +19,7 @@ require("lazy").setup({
         "wbthomason/packer.nvim",
         "simrat39/symbols-outline.nvim",
         "mfussenegger/nvim-jdtls",
+        "lewis6991/gitsigns.nvim",
         { 'akinsho/toggleterm.nvim',     version = "*", config = true },
         "nvim-lua/plenary.nvim",
         {
@@ -80,11 +81,19 @@ require("lazy").setup({
             "neovim/nvim-lspconfig",
         },
         { "hrsh7th/nvim-cmp",      "hrsh7th/cmp-nvim-lsp" },
-        "nvim-tree/nvim-tree.lua",
-        { "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets", "saadparwaiz1/cmp_luasnip" } },
+        { "L3MON4D3/LuaSnip",      dependencies = { "rafamadriz/friendly-snippets", "saadparwaiz1/cmp_luasnip" } },
         "nvim-tree/nvim-web-devicons",
+        {
+            "nvim-neo-tree/neo-tree.nvim",
+            branch = "v3.x",
+            dependencies = {
+                "nvim-lua/plenary.nvim",
+                "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+                "MunifTanjim/nui.nvim",
+            }
+        },
         "wbthomason/packer.nvim",
-        { "catppuccin/nvim",  name = "catppuccin",                                                          priority = 1000 },
+        { "catppuccin/nvim",             name = "catppuccin", priority = 1000 },
         "maxmellon/vim-jsx-pretty",
         "onsails/lspkind.nvim",
         {
@@ -106,7 +115,6 @@ require("lazy").setup({
             "jsongerber/nvim-px-to-rem",
             config = true,
         },
-        { "kevinhwang91/nvim-ufo",       dependencies = "kevinhwang91/promise-async" },
         {
             "Exafunction/codeium.vim",
             config = function()
@@ -144,7 +152,6 @@ require("lazy").setup({
             "williamboman/mason-lspconfig.nvim",
             "neovim/nvim-lspconfig",
         },
-        "nvim-tree/nvim-tree.lua",
         "nvim-tree/nvim-web-devicons",
         {
             "rebelot/terminal.nvim",
