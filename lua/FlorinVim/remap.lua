@@ -106,11 +106,11 @@ vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true 
 -- Move to the window to the right
 -- vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap("n", "<C-w>", ":split<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-e>", ":vsplit<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-z>", ":split<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-v>", ":vsplit<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-q>", "<C-w>q", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-y>", "<C-w>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-z>", "<C-w>-", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-w>", "<C-w>-", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-c>", "<C-w>>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-x>", "<C-w><", { noremap = true, silent = true })
 
