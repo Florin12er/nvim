@@ -37,4 +37,6 @@ vim.cmd([[autocmd VimEnter * LspStart<CR>]])
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "100"
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.g.python3_host_prog = '/usr/local/bin/python3.12'
+vim.g.python3_host_prog = "/usr/local/bin/python3.12"
+vim.cmd("let $PATH .= ':/home/florin/.nix-profile/bin'")
+vim.cmd("highlight ColorColumn ctermbg=none guibg=#89b4fa")
