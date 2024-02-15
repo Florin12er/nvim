@@ -38,14 +38,16 @@ vim.keymap.set("n", "<leader>so", function()
 end)
 
 --telescope
+require("telescope").load_extension("emoji")
+vim.api.nvim_set_keymap("n", "<leader>ej", ":Telescope emoji<CR>", { noremap = true, silent = true })
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>gg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>cs", builtin.colorscheme, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fs", function()
 	builtin.grep_string({ search = vim.fn.input("Find > ") })
 end)
-
 vim.keymap.set("n", "<leader>o", ":SymbolsOutline<CR>", { noremap = true, silent = true })
 
 --terminal
@@ -166,4 +168,4 @@ vim.cmd("Gitsigns toggle_signs")
 vim.cmd("Gitsigns toggle_current_line_blame")
 
 --neo tree
-vim.keymap.set("n", "<leader>md", ":Neotree toggle<CR>", { noremap = true, silent = true })
+--vim.keymap.set("n", "<leader>md", ":Neotree toggle<CR>", { noremap = true, silent = true })
