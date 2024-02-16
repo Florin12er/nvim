@@ -17,11 +17,36 @@ require("lazy").setup({
 			event = { "BufReadPre", "BufNewFile" },
 		},
 		"wbthomason/packer.nvim",
+		"hrsh7th/cmp-path",
 		{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
 		{ "rose-pine/neovim", name = "rose-pine" },
 		"simrat39/symbols-outline.nvim",
+		"amarakon/nvim-cmp-buffer-lines",
 		"hrsh7th/cmp-buffer",
+		{
+			"scottmckendry/cyberdream.nvim",
+			lazy = false,
+			priority = 1000,
+			config = function()
+				require("cyberdream").setup({
+					-- Recommended - see "Configuring" below for more config options
+					transparent = true,
+					italic_comments = true,
+					hide_fillchars = true,
+					borderless_telescope = true,
+				})
+			end,
+		},
 		"xiyaowong/telescope-emoji.nvim",
+		{
+			"David-Kunz/cmp-npm",
+			dependencies = { "nvim-lua/plenary.nvim" },
+			ft = "json",
+			config = function()
+				require("cmp-npm").setup({})
+			end,
+		},
+		"amarakon/nvim-cmp-fonts",
 		"hrsh7th/cmp-emoji",
 		"mfussenegger/nvim-jdtls",
 		"lewis6991/gitsigns.nvim",

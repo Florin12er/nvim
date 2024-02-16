@@ -1,11 +1,15 @@
+require("cmp-npm").setup({})
 local cmp = require("cmp")
 cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "codeium" },
+		{ name = "npm", keyword_length = 4 },
 		{ name = "emoji" },
 		{ name = "dictionary", keyword_length = 2 },
+		{ name = "path" },
+		{ name = "buffer-lines" },
 		{
 			name = "buffer",
 			option = {
@@ -45,6 +49,7 @@ cmp.setup({
 		end, { "i", "s" }),
 	}),
 })
+
 cmp.setup({
 	formatting = {
 		format = require("lspkind").cmp_format({
@@ -55,3 +60,4 @@ cmp.setup({
 		}),
 	},
 })
+require("cmp").setup.filetype({ "conf", "config", "css" }, { sources = { { name = "fonts" } } })
