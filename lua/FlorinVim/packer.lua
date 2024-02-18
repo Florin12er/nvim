@@ -21,8 +21,10 @@ require("lazy").setup({
 		{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
 		{ "rose-pine/neovim", name = "rose-pine" },
 		"simrat39/symbols-outline.nvim",
+		"hrsh7th/cmp-nvim-lsp-signature-help",
 		"amarakon/nvim-cmp-buffer-lines",
 		"hrsh7th/cmp-buffer",
+		"ray-x/cmp-treesitter",
 		{
 			"scottmckendry/cyberdream.nvim",
 			lazy = false,

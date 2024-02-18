@@ -4,8 +4,10 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
-		{ name = "codeium" },
 		{ name = "npm", keyword_length = 4 },
+		{ name = "cmp_lsp_signature_help" },
+		{ name = "codeium" },
+		{ name = "treesitter" },
 		{ name = "emoji" },
 		{ name = "dictionary", keyword_length = 2 },
 		{ name = "path" },
@@ -61,3 +63,4 @@ cmp.setup({
 	},
 })
 require("cmp").setup.filetype({ "conf", "config", "css" }, { sources = { { name = "fonts" } } })
+require("cmp-npm").setup({})
