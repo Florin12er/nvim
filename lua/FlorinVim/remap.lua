@@ -50,6 +50,9 @@ vim.keymap.set("n", "<leader>fs", function()
 end)
 vim.keymap.set("n", "<leader>o", ":SymbolsOutline<CR>", { noremap = true, silent = true })
 
+--lf
+vim.api.nvim_set_keymap("n", "<leader>lf", ":Lf<CR>", { noremap = true, silent = true })
+
 --terminal
 -- exit terminal mode
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })

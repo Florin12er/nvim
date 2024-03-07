@@ -22,6 +22,9 @@ require("lazy").setup({
 		{ "rose-pine/neovim", name = "rose-pine" },
 		"simrat39/symbols-outline.nvim",
 		"hrsh7th/cmp-nvim-lsp-signature-help",
+		"shaunsingh/nord.nvim",
+		"ptzz/lf.vim",
+		"voldikss/vim-floaterm",
 		"amarakon/nvim-cmp-buffer-lines",
 		"hrsh7th/cmp-buffer",
 		"ray-x/cmp-treesitter",
@@ -169,6 +172,37 @@ require("lazy").setup({
 		{ "christoomey/vim-tmux-navigator", lazy = false },
 		"ThePrimeagen/vim-be-good",
 		"nvim-lua/plenary.nvim",
+		{
+			"goolord/alpha-nvim",
+			dependencies = {
+				"nvim-tree/nvim-web-devicons",
+			},
+
+			config = function()
+				local alpha = require("alpha")
+				local dashboard = require("alpha.themes.startify")
+
+				dashboard.section.header.val = {
+					[[                                                                       ]],
+					[[                                                                       ]],
+					[[                                                                       ]],
+					[[                                                                       ]],
+					[[                                                                     ]],
+					[[       ████ ██████           █████      ██                     ]],
+					[[      ███████████             █████                             ]],
+					[[      █████████ ███████████████████ ███   ███████████   ]],
+					[[     █████████  ███    █████████████ █████ ██████████████   ]],
+					[[    █████████ ██████████ █████████ █████ █████ ████ █████   ]],
+					[[  ███████████ ███    ███ █████████ █████ █████ ████ █████  ]],
+					[[ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
+					[[                                                                       ]],
+					[[                                                                       ]],
+					[[                                                                       ]],
+				}
+
+				alpha.setup(dashboard.opts)
+			end,
+		},
 		"brenoprata10/nvim-highlight-colors",
 		"nvim-ts-autotag",
 		"nvim-treesitter/nvim-treesitter",
