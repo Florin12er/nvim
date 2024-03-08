@@ -26,6 +26,27 @@ require("lazy").setup({
 		"ptzz/lf.vim",
 		"voldikss/vim-floaterm",
 		"amarakon/nvim-cmp-buffer-lines",
+		{
+			"epwalsh/obsidian.nvim",
+			version = "*", -- recommended, use latest release instead of latest commit
+			lazy = true,
+			ft = "markdown",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+			},
+			opts = {
+				workspaces = {
+					{
+						name = "personal",
+						path = "~/vaults/personal",
+					},
+					{
+						name = "work",
+						path = "~/vaults/work",
+					},
+				},
+			},
+		},
 		"hrsh7th/cmp-buffer",
 		"ray-x/cmp-treesitter",
 		{
